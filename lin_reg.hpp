@@ -1,6 +1,6 @@
 /********************************************************************************
 * lin_reg.hpp: Innehåller funktionalitet för enkel implementering av
-*              maskininlärningmodeller baserade på linjär regression via 
+*              maskininlärningsmodeller baserade på linjär regression via 
 *              strukten lin_reg.
 ********************************************************************************/
 #ifndef LIN_REG_HPP_

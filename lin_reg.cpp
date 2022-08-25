@@ -1,5 +1,5 @@
 /********************************************************************************
-* lin_reg.hpp: Definition av funktionsmedlemmar tillhörande strukten lin_reg, 
+* lin_reg.cpp: Definition av funktionsmedlemmar tillhörande strukten lin_reg, 
 *              som används för implementering av enkla maskininlärningsmodeller
 *              som baseras på linjär regression.
 ********************************************************************************/
