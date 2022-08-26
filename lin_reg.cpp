@@ -83,15 +83,25 @@ void lin_reg::predict(std::ostream& ostream)
       return;
    }
 
+   constexpr auto threshold = 0.01;
    const auto* end = &this->train_in[this->train_in.size() - 1];
+
    ostream << "--------------------------------------------------------------------------------\n";
 
    for (auto& i : this->train_in)
    {
-      const auto prediction = this->weight * i + this->bias;
+      const auto prediction = this->predict(i);
 
       ostream << "Input: " << i << "\n";
-      ostream << "Predicted output: " << prediction << "\n";
+
+      if (prediction > -threshold && prediction < threshold)
+      {
+         ostream << "Predicted output: " << 0.0 << "\n";
+      }
+      else
+      {
+         ostream << "Predicted output: " << prediction << "\n";
+      }
 
       if (&i < end) ostream << "\n";
    }
@@ -127,14 +137,22 @@ void lin_reg::predict_range(const double min,
       return;
    }
 
+   constexpr auto threshold = 0.01;
    ostream << "--------------------------------------------------------------------------------\n";
 
    for (auto i = min; i <= max; i = i + step)
    {
-      const auto prediction = this->weight * i + this->bias;
-
+      const auto prediction = this->predict(i);
       ostream << "Input: " << i << "\n";
-      ostream << "Predicted output: " << prediction << "\n";
+
+      if (prediction > -threshold && prediction < threshold)
+      {
+         ostream << "Predicted output: " << 0.0 << "\n";
+      }
+      else
+      {
+         ostream << "Predicted output: " << prediction << "\n";
+      }
 
       if (i < max) ostream << "\n";
    }

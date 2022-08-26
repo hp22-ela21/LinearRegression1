@@ -21,9 +21,9 @@ struct lin_reg
    /* Medlemmar: */
    std::vector<double> train_in;         /* Indata för träningsuppsättningar. */
    std::vector<double> train_out;        /* Utdata för träningsuppsättningar. */
-   std::vector<std::size_t> train_order; /* Ordningsföljd för träningsuppsättningar. */ 
-   double bias = 0.0;                    /* Vilovärde (m-värde). */ 
-   double weight = 0.0;                  /* Vikt (k-värde). */
+   std::vector<std::size_t> train_order; /* Lagrar ordningsföljd vid träning. */ 
+   double bias = get_random();           /* Vilovärde (m-värde). */
+   double weight = get_random();         /* Vikt (k-värde). */
 
    /* Medlemsfunktioner: */
    std::size_t num_sets(void) { return this->train_order.size(); }
@@ -38,6 +38,7 @@ struct lin_reg
                       const double step = 1.0,
                       std::ostream& ostream = std::cout);
 private:
+   double get_random(void) { return std::rand() / static_cast<double>(RAND_MAX); }
    void shuffle(void);
    void optimize(const double input,
                  const double reference,

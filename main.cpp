@@ -45,10 +45,10 @@ int main(const int argc,
 {
    lin_reg l1;
    const std::vector<double> train_in = { 0, 1, 2, 3, 4 };
-   const std::vector<double> train_out = { 2, 12, 22, 32, 42 };
+   const std::vector<double> train_out = { -2, 0, 2, 4, 6 };
 
    std::size_t num_epochs = 10000;
-   double learning_rate = 0.01;
+   double learning_rate = 0.2;
 
    if (argc == 3)
    {
@@ -58,6 +58,6 @@ int main(const int argc,
 
    l1.set_training_data(train_in, train_out);
    l1.train(num_epochs, learning_rate);
-   l1.predict_range(-10, 10);
+   l1.predict();
    return 0;
 }
