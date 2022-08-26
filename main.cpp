@@ -4,8 +4,8 @@
 *           main och lagrat via två vektorer. Träningsdatan kan ändras utefter 
 *           behov, både via fler uppsättningar eller via helt ny data.
 *
-*           Kompilera programkoden och skapa en körbar fil döpt main.exe via
-*           följande kommando:
+*           I Windows, kompilera programkoden och skapa en körbar fil döpt 
+*           main.exe via följande kommando:
 *           $ g++ main.cpp lin_reg.cpp -o main.exe -Wall
 *
 *           Programmet kan sedan köras under 10 000 epoker med en lärhastighet
@@ -44,6 +44,7 @@ int main(const int argc,
          const char** argv)
 {
    lin_reg l1;
+
    const std::vector<double> train_in = { 0, 1, 2, 3, 4 };
    const std::vector<double> train_out = { -2, 0, 2, 4, 6 };
 
