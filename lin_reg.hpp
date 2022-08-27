@@ -21,7 +21,7 @@ struct lin_reg
    /* Medlemmar: */
    std::vector<double> train_in;         /* Indata för träningsuppsättningar. */
    std::vector<double> train_out;        /* Utdata för träningsuppsättningar. */
-   std::vector<std::size_t> train_order; /* Lagrar ordningsföljd vid träning. */ 
+   std::vector<std::size_t> train_order; /* Lagrar ordningsföljden vid träning. */ 
    double bias = this->get_random();     /* Vilovärde (m-värde). */
    double weight = this->get_random();   /* Vikt (k-värde). */
 

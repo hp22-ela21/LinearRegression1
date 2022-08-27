@@ -69,7 +69,7 @@ void lin_reg::train(const std::size_t num_epochs,
 /********************************************************************************
 * predict: Genomför prediktion med angiven regressionsmodell via indata från
 *          samtliga befintliga träningsuppsättningar och skriver ut varje
-*          insignal samt motsvarande predikterat värde via angiven utström
+*          insignal samt motsvarande predikterat värde via angiven utström,
 *          där standardutenheten std::cout används som default för utskrift
 *          i terminalen.
 *
@@ -184,19 +184,19 @@ void lin_reg::shuffle(void)
 * optimize: Beräknar aktuell avvikelse för angiven regressionsmodell och 
 *           justerar modellens parametrar därefter.
 *
-*           input        : Insignal som prediktion skall genomföras med.
-*           reference    : Referensvärde från träningsdatan, vilket utgör det
-*                          värde som modellen önskas prediktera.
-*           learning_rate: Modellens lärhastighet, avgör hur mycket modellens
-*                          parametrar justeras vid avvikelse.
+*           - input        : Insignal som prediktion skall genomföras med.
+*           - reference    : Referensvärde från träningsdatan, vilket utgör
+*                            det värde som modellen önskas prediktera.
+*           - learning_rate: Modellens lärhastighet, avgör hur mycket modellens
+*                            parametrar justeras vid avvikelse.
 ********************************************************************************/
 void lin_reg::optimize(const double input,
                        const double reference,
                        const double learning_rate)
 {
    const auto prediction = this->predict(input);
-   const auto error = reference - prediction;
-   const auto change_rate = error * learning_rate;
+   const auto deviation = reference - prediction;
+   const auto change_rate = deviation * learning_rate;
 
    this->bias += change_rate;
    this->weight += change_rate * input;
