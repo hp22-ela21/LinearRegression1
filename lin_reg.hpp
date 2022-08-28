@@ -26,6 +26,7 @@ struct lin_reg
    double weight = this->get_random();   /* Vikt (k-värde). */
 
    /* Medlemsfunktioner: */
+   lin_reg(void) { }
    std::size_t num_sets(void) { return this->train_order.size(); }
    void set_training_data(const std::vector<double>& train_in,
                           const std::vector<double>& train_out);

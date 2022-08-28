@@ -1,8 +1,7 @@
 /********************************************************************************
 * main.cpp: Implementering av en enkel maskininlärningsmodell baserad på 
-*           linjär regression, med träningsdata deklarerat direkt i funktionen 
-*           main och lagrat via två vektorer. Träningsdatan kan ändras utefter 
-*           behov, både via fler uppsättningar eller via helt ny data.
+*           linjär regression, med träningsdata definierat direkt i funktionen 
+*           main och lagrat via två vektorer.
 *
 *           I Windows, kompilera programkoden och skapa en körbar fil döpt 
 *           main.exe via följande kommando:
@@ -46,7 +45,7 @@ int main(const int argc,
    lin_reg l1;
 
    const std::vector<double> train_in = { 0, 1, 2, 3, 4 };
-   const std::vector<double> train_out = { -2, 0, 2, 4, 6 };
+   const std::vector<double> train_out = { 2, 12, 22, 32, 42 };
 
    std::size_t num_epochs = 10000;
    double learning_rate = 0.2;
