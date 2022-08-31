@@ -1,42 +1,42 @@
 /********************************************************************************
-* main.cpp: Implementering av en enkel maskininlÃ¤rningsmodell baserad pÃ¥ 
-*           linjÃ¤r regression, med trÃ¤ningsdata definierat direkt i funktionen 
-*           main och lagrat via tvÃ¥ vektorer.
+* main.cpp: Implementering av en enkel maskininlärningsmodell baserad på 
+*           linjär regression, med träningsdata definierat direkt i funktionen 
+*           main och lagrat via två vektorer.
 *
-*           I Windows, kompilera programkoden och skapa en kÃ¶rbar fil dÃ¶pt 
-*           main.exe via fÃ¶ljande kommando:
+*           I Windows, kompilera programkoden och skapa en körbar fil döpt 
+*           main.exe via följande kommando:
 *           $ g++ main.cpp lin_reg.cpp -o main.exe -Wall
 *
-*           Programmet kan sedan kÃ¶ras under 10 000 epoker med en lÃ¤rhastighet
-*           pÃ¥ 1 % via fÃ¶ljande kommando:
+*           Programmet kan sedan köras under 10 000 epoker med en lärhastighet
+*           på 1 % via följande kommando:
 *           $ main.exe
 *
-*           FÃ¶r att mata in antalet epoker samt lÃ¤rhastighet som skall anvÃ¤ndas
-*           vid trÃ¤ning kan fÃ¶ljande kommando anvÃ¤ndas:
+*           För att mata in antalet epoker samt lärhastighet som skall användas
+*           vid träning kan följande kommando användas:
 *           $ main.exe <num_epochs> <learning_rate>
 *
-*           Som exempel, fÃ¶r att genomfÃ¶ra trÃ¤ning under 5000 epoker med en
-*           lÃ¤rhastighet pÃ¥ 2 % kan fÃ¶ljande kommando anvÃ¤ndas:
+*           Som exempel, för att genomföra träning under 5000 epoker med en
+*           lärhastighet på 2 % kan följande kommando användas:
 *           $ main.exe 5000 0.02
 ********************************************************************************/
 #include "lin_reg.hpp"
 
 /********************************************************************************
-* main: TrÃ¤nar en maskininlÃ¤rningsmodell baserad pÃ¥ linjÃ¤r regression via 
-*       trÃ¤ningsdata bestÃ¥ende av fem trÃ¤ningsuppsÃ¤ttningar, lagrade via var 
-*       sin vektor. Modellen trÃ¤nas som default under 10 000 epoker med en 
-*       lÃ¤rhastighet pÃ¥ 1 %. Dessa parametrar kan dock vÃ¤ljas av anvÃ¤ndaren 
-*       via inmatning i samband med kÃ¶rning av programmet, vilket lÃ¤ses in 
-*       via ingÃ¥ende argument argc samt argv.
+* main: Tränar en maskininlärningsmodell baserad på linjär regression via 
+*       träningsdata bestående av fem träningsuppsättningar, lagrade via var 
+*       sin vektor. Modellen tränas som default under 10 000 epoker med en 
+*       lärhastighet på 1 %. Dessa parametrar kan dock väljas av användaren 
+*       via inmatning i samband med körning av programmet, vilket läses in 
+*       via ingående argument argc samt argv.
 *
-*       Efter trÃ¤ningen Ã¤r slutfÃ¶rd sker prediktion fÃ¶r samtliga insignaler
-*       mellan -10 och 10 med en stegringshastighet pÃ¥ 1.0. Varje insignal
+*       Efter träningen är slutförd sker prediktion för samtliga insignaler
+*       mellan -10 och 10 med en stegringshastighet på 1.0. Varje insignal
 *       i detta intervall skrivs ut i terminalen tillsammans med predikterad
 *       utsignal.
 *
-*       - argc: Antalet argument som har matats in vid kÃ¶rning av programmet
-*               (default = 1, vilket Ã¤r kommandot fÃ¶r att kÃ¶ra programmet).
-*       - argc: Pekare till array innehÃ¥llande samtliga inlÃ¤sta argument i
+*       - argc: Antalet argument som har matats in vid körning av programmet
+*               (default = 1, vilket är kommandot för att köra programmet).
+*       - argc: Pekare till array innehållande samtliga inlästa argument i
 *               form av text (default = exekveringskommandot, exempelvis main).
 ********************************************************************************/
 int main(const int argc,
@@ -58,6 +58,6 @@ int main(const int argc,
 
    l1.set_training_data(train_in, train_out);
    l1.train(num_epochs, learning_rate);
-   l1.predict();
+   l1.predict_range(-10, 10);
    return 0;
 }
