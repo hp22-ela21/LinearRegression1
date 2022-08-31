@@ -1,42 +1,42 @@
 /********************************************************************************
-* main.cpp: Implementering av en enkel maskininlärningsmodell baserad på 
-*           linjär regression, med träningsdata definierat direkt i funktionen 
-*           main och lagrat via två vektorer.
+* main.cpp: Implementering av en enkel maskininlÃ¤rningsmodell baserad pÃ¥ 
+*           linjÃ¤r regression, med trÃ¤ningsdata definierat direkt i funktionen 
+*           main och lagrat via tvÃ¥ vektorer.
 *
-*           I Windows, kompilera programkoden och skapa en körbar fil döpt 
-*           main.exe via följande kommando:
+*           I Windows, kompilera programkoden och skapa en kÃ¶rbar fil dÃ¶pt 
+*           main.exe via fÃ¶ljande kommando:
 *           $ g++ main.cpp lin_reg.cpp -o main.exe -Wall
 *
-*           Programmet kan sedan köras under 10 000 epoker med en lärhastighet
-*           på 1 % via följande kommando:
+*           Programmet kan sedan kÃ¶ras under 10 000 epoker med en lÃ¤rhastighet
+*           pÃ¥ 1 % via fÃ¶ljande kommando:
 *           $ main.exe
 *
-*           För att mata in antalet epoker samt lärhastighet som skall användas
-*           vid träning kan följande kommando användas:
+*           FÃ¶r att mata in antalet epoker samt lÃ¤rhastighet som skall anvÃ¤ndas
+*           vid trÃ¤ning kan fÃ¶ljande kommando anvÃ¤ndas:
 *           $ main.exe <num_epochs> <learning_rate>
 *
-*           Som exempel, för att genomföra träning under 5000 epoker med en
-*           lärhastighet på 2 % kan följande kommando användas:
+*           Som exempel, fÃ¶r att genomfÃ¶ra trÃ¤ning under 5000 epoker med en
+*           lÃ¤rhastighet pÃ¥ 2 % kan fÃ¶ljande kommando anvÃ¤ndas:
 *           $ main.exe 5000 0.02
 ********************************************************************************/
 #include "lin_reg.hpp"
 
 /********************************************************************************
-* main: Tränar en maskininlärningsmodell baserad på linjär regression via 
-*       träningsdata bestående av fem träningsuppsättningar, lagrade via var 
-*       sin vektor. Modellen tränas som default under 10 000 epoker med en 
-*       lärhastighet på 1 %. Dessa parametrar kan dock väljas av användaren 
-*       via inmatning i samband med körning av programmet, vilket läses in 
-*       via ingående argument argc samt argv.
+* main: TrÃ¤nar en maskininlÃ¤rningsmodell baserad pÃ¥ linjÃ¤r regression via 
+*       trÃ¤ningsdata bestÃ¥ende av fem trÃ¤ningsuppsÃ¤ttningar, lagrade via var 
+*       sin vektor. Modellen trÃ¤nas som default under 10 000 epoker med en 
+*       lÃ¤rhastighet pÃ¥ 1 %. Dessa parametrar kan dock vÃ¤ljas av anvÃ¤ndaren 
+*       via inmatning i samband med kÃ¶rning av programmet, vilket lÃ¤ses in 
+*       via ingÃ¥ende argument argc samt argv.
 *
-*       Efter träningen är slutförd sker prediktion för samtliga insignaler
-*       mellan -10 och 10 med en stegringshastighet på 1.0. Varje insignal
+*       Efter trÃ¤ningen Ã¤r slutfÃ¶rd sker prediktion fÃ¶r samtliga insignaler
+*       mellan -10 och 10 med en stegringshastighet pÃ¥ 1.0. Varje insignal
 *       i detta intervall skrivs ut i terminalen tillsammans med predikterad
 *       utsignal.
 *
-*       - argc: Antalet argument som har matats in vid körning av programmet
-*               (default = 1, vilket är kommandot för att köra programmet).
-*       - argc: Pekare till array innehållande samtliga inlästa argument i
+*       - argc: Antalet argument som har matats in vid kÃ¶rning av programmet
+*               (default = 1, vilket Ã¤r kommandot fÃ¶r att kÃ¶ra programmet).
+*       - argc: Pekare till array innehÃ¥llande samtliga inlÃ¤sta argument i
 *               form av text (default = exekveringskommandot, exempelvis main).
 ********************************************************************************/
 int main(const int argc,
@@ -48,7 +48,7 @@ int main(const int argc,
    const std::vector<double> train_out = { 2, 12, 22, 32, 42 };
 
    std::size_t num_epochs = 10000;
-   double learning_rate = 0.2;
+   double learning_rate = 0.01;
 
    if (argc == 3)
    {
